@@ -604,7 +604,8 @@ async def factcheck_handle(update: Update, context: CallbackContext):
     user_id = update.message.from_user.id
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     reply = rag.generate_factcheck(update.message.text)
-    await update.message.reply_text(reply)#, parse_mode=ParseMode.HTML)
+    print(reply)
+    await update.message.reply_text("Hehe")#, parse_mode=ParseMode.HTML)
 
 
 def get_chat_mode_menu(page_index: int):
