@@ -604,7 +604,7 @@ async def factcheck_handle(update: Update, context: CallbackContext):
     user_id = update.message.from_user.id
     db.set_user_attribute(user_id, "last_interaction", datetime.now())
     await update.message.reply_text("Hehe")
-    reply = rag.generate_factcheck(update.message.text)
+    reply = await rag.generate_factcheck(update.message.text)
     print(reply)
     await update.message.reply_text("Hehe")#, parse_mode=ParseMode.HTML)
 

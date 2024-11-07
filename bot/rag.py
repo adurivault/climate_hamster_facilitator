@@ -12,6 +12,7 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 pc = Pinecone(api_key="pcsk_6vKoPN_29eWAQfJpnxi7X8ZMsPYhKmuzeGTknYZVzrJqTLoBNQWg16dZnamobd16E71FwS")
 index_name = "factcheck-local"
 pinecone_index = pc.Index(index_name)
+print('Pinecone index created')
 
 model_name = "BAAI/bge-m3"
 encode_kwargs = {'normalize_embeddings': True,"show_progress_bar":False} # set True to compute cosine similarity
@@ -22,12 +23,16 @@ embeddings_function = HuggingFaceBgeEmbeddings(
     encode_kwargs=encode_kwargs,
     query_instruction=query_instruction,
 )
+print('Embedding model created')
+
 
 # Create a Retrieval QA chain using Pinecone as the vector store
 retriever = Pinecone(
     pinecone_index=pinecone_index,
     embedding_function=embeddings_function,
 )
+print('Retriever created')
+
 
 system_prompt = (
     "Use the given context to answer the question. "
