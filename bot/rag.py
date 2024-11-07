@@ -7,9 +7,6 @@ from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from pinecone import Pinecone
 
-# Set up OpenAI API key
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-
 # Initialize Pinecone
 pc = Pinecone(api_key="pcsk_6vKoPN_29eWAQfJpnxi7X8ZMsPYhKmuzeGTknYZVzrJqTLoBNQWg16dZnamobd16E71FwS")
 index_name = "factcheck-local"
