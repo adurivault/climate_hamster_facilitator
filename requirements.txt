@@ -13,4 +13,4 @@ huggingface-hub
 torch==2.3.0
 nvidia-cudnn-cu12==8.9.2.26
 langchain-community==0.2
-langchain_pinecone==5.0.1
+langchain-pinecone==0.2.0
