@@ -2,7 +2,7 @@ import os
 import openai
 from langchain_community.embeddings import HuggingFaceBgeEmbeddings
 from langchain_community.llms import OpenAI
-from langchain_community.vectorstores import Pinecone
+from langchain_community.vectorstores import Pinecone as PineconeVectorStore
 from pinecone import Pinecone
 
 # Set up OpenAI API key
@@ -27,7 +27,7 @@ print('Embedding model created')
 
 
 # Create a Retrieval QA chain using Pinecone as the vector store
-retriever = Pinecone(
+retriever = PineconeVectorStore(
     pinecone_index=pinecone_index,
     embedding_function=embeddings_function,
 )
